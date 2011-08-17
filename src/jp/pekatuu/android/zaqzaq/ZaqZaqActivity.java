@@ -16,7 +16,7 @@ public class ZaqZaqActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mSurfaceView = new GLSurfaceView(this);
-		renderer = new ZaqZaqRenderer();
+		renderer = new ZaqZaqRenderer(this);
 		mSurfaceView.setRenderer(renderer);
 		setContentView(mSurfaceView);
 		

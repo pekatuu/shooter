@@ -1,6 +1,7 @@
 package jp.pekatuu.android.util;
 
 import static android.opengl.GLES10.GL_NEAREST;
+import static android.opengl.GLES10.GL_LINEAR;
 import static android.opengl.GLES10.GL_TEXTURE_2D;
 import static android.opengl.GLES10.GL_TEXTURE_MAG_FILTER;
 import static android.opengl.GLES10.GL_TEXTURE_MIN_FILTER;
@@ -16,6 +17,7 @@ import java.nio.IntBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import jp.pekatuu.android.zaqzaq.R;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -30,11 +32,7 @@ public class GLTextureFactory {
 	public static int SHIP;
 
 	public static void allocateTextures(GL10 gl, Context c) {
-		/*BUILDING1 = loadTextureAlt(gl, R.drawable.wall1, c);
-		ROAD1= loadTextureAlt(gl, R.drawable.road, c);
-		FONT1 = loadTextureAlt(gl, R.drawable.fonts, c);
-		HUD = loadTextureAlt(gl, R.drawable.hud, c);
-		SHIP = loadTextureAlt(gl, R.drawable.ship, c);*/
+		FONT1 = loadTextureAlt(gl, R.drawable.font, c);
 	}
 
 	/**
@@ -90,8 +88,8 @@ public class GLTextureFactory {
 		int tex = textures[0];
 		glBindTexture(GL_TEXTURE_2D, tex);
 
-		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		//glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
 
 		InputStream is = c.getResources().openRawResource(
